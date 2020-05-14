@@ -19,6 +19,8 @@ Xueying Huang
 There are four pages in my website.
 ### Homepage
 This is a welcome page. You can click the stock portfolio analysis button or about me button to explore the website.
+### About Me
+This is a personal page that help you learn more about me!
 ### Stock Portfolio Analysis
 1. In this page, you can enter the Symbol of any stock in S&P 500 and click the button to get more information.
 2. You can add one stock each time and please add at least two stocks to get analysis.
@@ -28,6 +30,4 @@ This is a welcome page. You can click the stock portfolio analysis button or abo
 ### Result
 There are 6 charts that analyzing the portfolio you build.
 ![Image of samples](/image/samples.png)
-### About Me
-This is a personal page that help you learn more about me!
 
