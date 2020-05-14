@@ -77,6 +77,10 @@ def stock_corr(daily_return):
 def hello():
     return render_template("index.html")
 
+@app.route("/person")
+def intro():
+    return render_template("personal.html")
+
 portfolio = []
 @app.route("/project", methods = ["GET", "POST"])
 def selectStock():
