@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<title>Stock Selection</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static',    filename='css/w3.css')}}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("/static/images/bridge.jpg");
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 90%;
+    }
+
+ th, td {
+  text-align: left;
+  padding: 8px;
+    }
+
+ tr:nth-child(even){background-color: #f2f2f2}
+
+ th {
+  background-color: #DEB887;
+  color: black;
+    }
+    
+ .pos {
+   margin: 0 auto;
+   position: relative;
+   margin-left: 50px;
+   margin-top: 50px;
+   background-color: #DEB887;
+ }
+ 
+</style>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="/" class="w3-button w3-block w3-black">Back to Homepage</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag">ENGI1006 Final Project</span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white" style="font-size:90px">Stock Analysis with Python</span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-white">Xueying Huang</span>
+  </div>
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-sand w3-grayscale w3-large">
+
+<!-- About Container -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Create Your Stock Portfolio</span></h5>
+  </div>
+</div>
+
+
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="intro">
+    <p class = "w3-justify-text-grey">Please enter the <em>Symbol</em> of the stock and click the button to get more information.</p>
+    <p class = "w3-justify-text-grey">Some stocks that you can add for testing: AAPL, FB, AMZN, JPM, XOM, NEE, BA, GILD, AMT, WMT.</p>
+    <p class = "w3-justify-text-grey">Attention: You need to add the stocks one by one and add at least two stocks!</p>
+    <p class = "w3-justify-text-grey">After adding all the stocks, you can click 'See more analysis...' to get the result</p>
+</div>
+  
+<div class="w3-container">
+      <table>
+        {% for table in tables %}
+                {{ table|safe }}
+        {% endfor %}
+      </table>
+      
+      <form action="{{url_for('selectStock')}}" method= "post">
+        <input type="text" name="stock" placeholder="Enter Stock Here">
+        <button class="pos">Add Stock</button>
+      </form>
+      
+ </div>
+
+<!-- Menu Container -->
+<div class="w3-container" id="menu">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48"><a href="/result" class="w3-button w3-black">See more analysis...</a></h5>
+  </div>
+</div>
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>
+
